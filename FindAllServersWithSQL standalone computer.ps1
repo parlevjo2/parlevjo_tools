@@ -1,3 +1,5 @@
+"Server, Instance, Version, Edition"
+
             $InstanceNameskey = "SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names"
 
             $MSSQLkey = "SOFTWARE\Microsoft\Microsoft SQL Server"
