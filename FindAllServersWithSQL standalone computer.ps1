@@ -1,3 +1,24 @@
+<#
+Powershell
+
+if ( ! ( Test-Path -Path "C:\Temp" ) ) { New-Item -Path "C:\Temp" -ItemType Directory }
+
+# Script URL en lokale pad
+$scriptUrl = "https://raw.githubusercontent.com/parlevjo2/parlevjo_tools/refs/heads/main/FindAllServersWithSQL standalone computer.ps1"
+$localPath = "c:\temp\FindAllServersWithSQL standalone computer.ps1"
+
+# Download het script
+Invoke-WebRequest -Uri $scriptUrl -OutFile $localPath
+
+cd C:\temp
+.\FindAllServersWithSQL standalone computer.ps1 $((Get-ADDomain).DNSRoot)
+hostname
+start .
+
+Remove-Item $localPath
+
+#>
+
 "Server, Instance, Version, Edition"
 
             $InstanceNameskey = "SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names"
