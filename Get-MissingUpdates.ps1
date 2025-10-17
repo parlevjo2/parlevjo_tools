@@ -1,5 +1,6 @@
 <#
 Powershell Run As Administrator:
+
 if ( ! ( Test-path "$env:ProgramData\WSUS Offline Catalog" ) ) { md "$env:ProgramData\WSUS Offline Catalog" }
 cd "$env:ProgramData\WSUS Offline Catalog"
 Start-BitsTransfer -Source "https://catalog.s.download.windowsupdate.com/microsoftupdate/v6/wsusscan/wsusscn2.cab" -Destination "$env:ProgramData\WSUS Offline Catalog\wsusscn2.cab"
