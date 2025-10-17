@@ -18,6 +18,9 @@ $MissingUpdates=.\Get-MissingUpdates.ps1 -Wsusscn2Url "http://go.microsoft.com/f
 $MissingUpdates | FT -AutoSize
 $MissingUpdates | Select -Expand MissingUpdates | FT -AutoSize
 
+Remove-Item $localPath
+Remove-Item "wsusscn2.cab"
+
 #>
 
 Param(
