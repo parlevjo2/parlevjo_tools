@@ -16,6 +16,7 @@ Invoke-WebRequest -Uri $scriptUrl -OutFile $localPath
 $MissingUpdates=.\Get-MissingUpdates.ps1 -Wsusscn2Url "http://go.microsoft.com/fwlink/?linkid=74689" -FileHash $wsus_offline_catalog_filehash
 $MissingUpdates | FT -AutoSize
 $MissingUpdates | Select -Expand MissingUpdates | FT -AutoSize
+
 #>
 
 Param(
