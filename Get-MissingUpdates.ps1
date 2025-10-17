@@ -1,11 +1,20 @@
 <#
-Start-BitsTransfer -Source "http://go.microsoft.com/fwlink/?linkid=74689" -Destination "$env:ProgramData\WSUS Offline Catalog\wsusscn2.cab"
-(Get-FileHash "$env:ProgramData\WSUS Offline Catalog\wsusscn2.cab").Hash
-
-$VerbosePreference="Continue"
+Powershell Run As Administrator:
+if ( ! ( Test-path "$env:ProgramData\WSUS Offline Catalog" ) ) { md "$env:ProgramData\WSUS Offline Catalog" }
+cd "$env:ProgramData\WSUS Offline Catalog"
+Start-BitsTransfer -Source "https://catalog.s.download.windowsupdate.com/microsoftupdate/v6/wsusscan/wsusscn2.cab" -Destination "$env:ProgramData\WSUS Offline Catalog\wsusscn2.cab"
 cd "$env:ProgramData\WSUS Offline Catalog"
 $wsus_offline_catalog_filehash=(Get-FileHash "wsusscn2.cab").Hash
-.\Get-MissingUpdates.ps1 -Wsusscn2Url "http://go.microsoft.com/fwlink/?linkid=74689" -FileHash $wsus_offline_catalog_filehash
+
+# Script URL en lokale pad
+$scriptUrl = "https://raw.githubusercontent.com/parlevjo2/parlevjo_tools/refs/heads/main/Get-MissingUpdates.ps1"
+$localPath = "$env:ProgramData\WSUS Offline Catalog\Get-MissingUpdates.ps1"
+# Download het script
+Invoke-WebRequest -Uri $scriptUrl -OutFile $localPath
+	
+$MissingUpdates=.\Get-MissingUpdates.ps1 -Wsusscn2Url "http://go.microsoft.com/fwlink/?linkid=74689" -FileHash $wsus_offline_catalog_filehash
+$MissingUpdates | FT -AutoSize
+$MissingUpdates | Select -Expand MissingUpdates | FT -AutoSize
 #>
 
 Param(
