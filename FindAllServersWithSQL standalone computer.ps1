@@ -19,6 +19,11 @@ Remove-Item $localPath
 
 #>
 
+$Server=""
+
+# if other server
+# $Server="XXXXX"
+
             $InstanceNameskey = "SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names"
 
             $MSSQLkey = "SOFTWARE\Microsoft\Microsoft SQL Server"
