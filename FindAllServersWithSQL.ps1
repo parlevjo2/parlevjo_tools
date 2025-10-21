@@ -7,6 +7,8 @@ if ( ! ( Test-Path -Path "C:\Temp" ) ) { New-Item -Path "C:\Temp" -ItemType Dire
 $scriptUrl = "https://raw.githubusercontent.com/parlevjo2/parlevjo_tools/refs/heads/main/FindAllServersWithSQL.ps1"
 $localPath = "c:\temp\FindAllServersWithSQL.ps1"
 
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
 # Download het script
 Invoke-WebRequest -Uri $scriptUrl -OutFile $localPath
 
