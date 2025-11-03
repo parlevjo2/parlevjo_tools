@@ -18,6 +18,7 @@ hostname
 start .
 
 Remove-Item $localPath
+$localPath
 
 #>
 
