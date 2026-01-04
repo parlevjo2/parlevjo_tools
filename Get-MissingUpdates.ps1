@@ -1,6 +1,6 @@
 <#
 
-Powershell Run As Administrator:
+# Powershell Run As Administrator:
 
 if ( ! ( Test-path "$env:ProgramData\WSUS Offline Catalog" ) ) { md "$env:ProgramData\WSUS Offline Catalog" }
 cd "$env:ProgramData\WSUS Offline Catalog"
