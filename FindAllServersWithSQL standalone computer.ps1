@@ -14,7 +14,7 @@ $localPath = "c:\temp\FindAllServersWithSQL standalone computer.ps1"
 Invoke-WebRequest -Uri $scriptUrl -OutFile $localPath
 
 cd C:\temp
-& ".\FindAllServersWithSQL standalone computer.ps1" $((Get-ADDomain).DNSRoot)
+& ".\FindAllServersWithSQL standalone computer.ps1"
 hostname
 start .
 
