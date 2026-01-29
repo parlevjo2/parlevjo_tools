@@ -14,7 +14,7 @@ $localPath = "$env:ProgramData\WSUS Offline Catalog\Get-MissingUpdates.ps1"
 # Download het script
 Invoke-WebRequest -Uri $scriptUrl -OutFile $localPath
 
-$MissingUpdates=.\Get-MissingUpdates.ps1 -Wsusscn2Url "http://go.microsoft.com/fwlink/?linkid=74689" -FileHash $wsus_offline_catalog_filehash
+$MissingUpdates=.\Get-MissingUpdates.ps1 -Wsusscn2Url "https://go.microsoft.com/fwlink/?linkid=74689" -FileHash $wsus_offline_catalog_filehash
 $MissingUpdates | FT -AutoSize
 $MissingUpdates | Select -Expand MissingUpdates | FT -AutoSize
 
